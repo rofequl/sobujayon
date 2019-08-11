@@ -36,8 +36,8 @@ class CreateProductsTable extends Migration
             $table->string('video',500)->nullable();
             $table->integer('qty');
             $table->integer('delivery_charge');
-            $table->integer('with_fruit')->default(0);
-            $table->integer('with_flower')->default(0);
+            $table->string('with_fruit')->default(0);
+            $table->string('with_flower')->default(0);
             $table->integer('origin_country_id');
             $table->integer('temperature_id');
             $table->string('what_you_will_get',500);

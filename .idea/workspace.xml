@@ -2,36 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c216fdb-74ff-496c-b737-96ec7a37ae0c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/height.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/width.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_08_10_193036_create_widths_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/public.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/nursery/nurcery_list.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/nursery/nursery_add.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frontend/single-shop.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sobujayon.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sobujayon.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sobujayon.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FrontendController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FrontendController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NurseryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NurseryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/shipping_weight.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temperature.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/temperature.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2019_07_30_134618_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_07_30_134618_create_products_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_05_140832_create_shipping_weights_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_10_193012_create_heights_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/inc/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/inc/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/inc/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/inc/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/layout/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/layout/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/nursery/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/nursery/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/nursery/product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/nursery/product.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/nursery/product_list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/nursery/product_list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -213,6 +184,7 @@
       <workItem from="1565413008214" duration="278000" />
       <workItem from="1565462198088" duration="5237000" />
       <workItem from="1565494350317" duration="2736000" />
+      <workItem from="1565497464469" duration="31000" />
     </task>
     <servers />
   </component>
