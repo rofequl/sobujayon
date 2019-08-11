@@ -46,10 +46,10 @@
                                             <th>Color</th>
                                             <th> Age</th>
                                             <th>Item Weight</th>
-                                            <th>Shipping Weight</th>
                                             <th>Height & width</th>
                                             <th> Discount</th>
                                             <th>Price</th>
+                                            <th>profit margin</th>
                                             <th>Qty</th>
                                             <th>Delivery Charge</th>
                                             <th>Origin country</th>
@@ -71,15 +71,15 @@
                                                 <td>{{$products->color}}</td>
                                                 <td>{{$products->age->age}}</td>
                                                 <td>{{$products->item_weight->weight}}</td>
-                                                <td>{{$products->shipping_weight->weight}}</td>
-                                                <td>{{$products->height.' & '.$products->width}}</td>
+                                                <td>{{$products->height->height.' & '.$products->width->width}}</td>
                                                 <td>{{$products->price}}</td>
                                                 <td>{{$products->discount}}</td>
+                                                <td>{{$products->profit_margin}}</td>
                                                 <td>{{$products->qty}}</td>
                                                 <td>{{$products->delivery_charge}}</td>
                                                 <td>{{$products->origin_country->country}}</td>
-                                                <td>{{$products->temperature}}</td>
-                                                <td>{{$products->warranty}}</td>
+                                                <td>{{$products->temperature->temperature}}</td>
+                                                <td>{{$products->what_you_will_get}}</td>
                                                 <td>{{$products->related_item}}</td>
                                                 <td><img class="rounded-circle" height="100" width="100" alt="200x200" src="{{asset('storage/tree/'.$products->image)}}" data-holder-rendered="true"></td>
                                             </tr>

@@ -31,6 +31,10 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('admin-product-status', 'ProductController@AdminProductStatus')->name('AdminProductStatus');
     Route::get('admin-unapproved-product-single/{data}', 'ProductController@AdminUnapprovedProductSingle')->name('AdminUnapprovedProductSingle');
 
+    Route::get('admin-nursery', 'NurseryController@AdminNursery')->name('AdminNursery');
+    Route::get('admin-nursery-list', 'NurseryController@AdminNurseryList')->name('AdminNurseryList');
+    Route::get('admin-nursery-list-delete', 'NurseryController@AdminNurseryListDelete')->name('AdminNurseryListDelete');
+
 });
 
 Route::get('/login-nursery', 'Auth\LoginController@showNurseryLoginForm')->name('login.nursery');
@@ -58,3 +62,5 @@ Route::post('/register-user', 'Auth\RegisterController@createUser')->name('regis
 
 
 Route::get('shop', 'FrontendController@shop')->name('shop');
+Route::get('single-shop', 'FrontendController@SingleShop')->name('SingleShop');
+Route::post('add-cart', 'FrontendController@AddCart')->name('AddCart');

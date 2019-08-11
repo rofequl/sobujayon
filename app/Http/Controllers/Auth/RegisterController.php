@@ -103,9 +103,9 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        Auth::guard('nursery')->login($admin);
+        //Auth::guard('nursery')->login($admin);
 
-        return redirect()->intended('/nursery');
+        return redirect('admin-nursery')->with('message','Nursery user add successfully');
     }
 
     protected function create(array $data)

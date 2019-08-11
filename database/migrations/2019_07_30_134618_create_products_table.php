@@ -19,16 +19,16 @@ class CreateProductsTable extends Migration
             $table->integer('subcategory_id');
             $table->integer('brand_id');
             $table->integer('name_id');
-            $table->text('short_description');
-            $table->text('long_description');
-            $table->string('color');
+            $table->text('short_description')->nullable();
+            $table->text('long_description')->nullable();
+            $table->string('color')->nullable();
             $table->integer('age_id');
             $table->integer('item_weight_id');
-            $table->integer('shipping_weight_id');
-            $table->integer('height');
-            $table->integer('width');
+            $table->integer('height_id');
+            $table->integer('width_id');
             $table->integer('price');
             $table->integer('discount');
+            $table->integer('profit_margin');
             $table->string('image',500)->nullable();
             $table->string('image2',500)->nullable();
             $table->string('image3',500)->nullable();
@@ -37,11 +37,11 @@ class CreateProductsTable extends Migration
             $table->integer('qty');
             $table->integer('delivery_charge');
             $table->integer('with_fruit')->default(0);
+            $table->integer('with_flower')->default(0);
             $table->integer('origin_country_id');
-            $table->integer('temperature');
-            $table->string('warranty',500);
+            $table->integer('temperature_id');
+            $table->string('what_you_will_get',500);
             $table->string('related_item',500);
-
             $table->timestamps();
         });
     }

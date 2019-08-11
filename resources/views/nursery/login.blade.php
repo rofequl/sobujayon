@@ -88,13 +88,6 @@
                             <button class="btn btn-primary w-md waves-effect waves-light" type="submit">Log In</button>
                         </div>
                     </div>
-
-                    <div class="form-group m-t-10 mb-0 row">
-                        <div class="col-12 m-t-20">
-                            <a href="pages-recoverpw.html" class="text-muted"><i class="mdi mdi-lock"></i> Forgot your
-                                password?</a>
-                        </div>
-                    </div>
                 </form>
             </div>
 
@@ -102,8 +95,6 @@
     </div>
 
     <div class="m-t-40 text-center" style="color: orangered">
-        <p>Don't have an account ? <a href="{{route('register.nursery')}}" class="font-500 font-14 text-purple font-secondary"> Signup
-                Now </a></p>
         © 2019 সবুজায়ন - Crafted with <i class="mdi mdi-heart text-danger"></i> by nested co ltd.
     </div>
 

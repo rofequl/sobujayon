@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateShippingWeightsTable extends Migration
+class CreateHeightsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateShippingWeightsTable extends Migration
      */
     public function up()
     {
-        Schema::create('shipping_weights', function (Blueprint $table) {
+        Schema::create('heights', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('weight');
+            $table->integer('height');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateShippingWeightsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shipping_weights');
+        Schema::dropIfExists('heights');
     }
 }

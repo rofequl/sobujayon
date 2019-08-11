@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class shipping_weight extends Model
+class height extends Model
 {
     public function product(){
-        return $this->hasMany(product::class,'shipping_weight_id');
+        return $this->hasMany(product::class,'height_id');
     }
 }

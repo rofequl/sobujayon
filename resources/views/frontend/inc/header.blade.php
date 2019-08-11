@@ -54,12 +54,24 @@
                 <img
                     style="background-position: center; margin-right: 200px; margin-left: 50px;  padding-top: 20px;"
                     src="{{asset('assets/frontend/upload/cart%20(7).ico')}}">
+                <div style="
+    background: red;
+    color: white;
+    padding: 5px;
+    border-radius: 27%;
+    margin-right: -39px;
+    margin-top: -52px;
+    width: 25px;
+    float: right;
+    z-index: 9990;
+">{{Cart::count()}}
+                </div>
             </div><!-- end left -->
             <div class="col-md-1 text-right">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown has-submenu">
                         <img
-                            style="background-position: center; margin-right: 100px; margin-left: 50px;  padding-top: 20px;"
+                            style="background-position: center; margin-left: 50px;  padding-top: 20px;"
                             class="dropdown-toggle" data-toggle="dropdown" role="button"
                             src="{{asset('assets/frontend/upload/login.png')}}">
                         @if(Auth::guard('user')->check())<p style="margin-top: -33px;margin-right: -18px;">
@@ -116,7 +128,7 @@
                                     </div>
                                 </div><!-- end navbar-header -->
                             </div><!-- end navbar-cell -->
-                            <div class="navbar-cell stretch">
+                            <div class="navbar-cell stretch pull-right">
                                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                                     <div class="navbar-cell">
                                         <ul class="nav navbar-nav navbar-right">
@@ -127,65 +139,18 @@
                                                 <a href="{{route('shop')}}">Shop</a>
                                             </li>
                                             <li class="dropdown has-submenu">
-                                                <a href="shop-cart.html" class="dropdown-toggle"
-                                                   data-toggle="dropdown" role="button" aria-expanded="false">Cart<span
-                                                        class="fa fa-angle-down"></span></a>
-                                                <ul class="dropdown-menu start-left" role="menu">
-                                                    <li><a href="shop-cart.html">Shop Cart</a></li>
-                                                    <li><a href="shop-cart.html">Shop Cart</a></li>
-                                                </ul>
+                                                <a href="{{route('shop')}}">Checkout</a>
                                             </li>
                                             <li class="dropdown has-submenu">
-                                                <a href="shop-checkout.html" class="dropdown-toggle"
-                                                   data-toggle="dropdown" role="button"
-                                                   aria-expanded="false">Checkout<span
-                                                        class="fa fa-angle-down"></span></a>
-                                                <ul class="dropdown-menu start-left" role="menu">
-                                                    <li><a href="shop-checkout.html">Shop Checkout</a></li>
-                                                    <li><a href="shop-checkout.html">Shop Checkout</a></li>
-                                                </ul>
+                                                <a href="{{route('shop')}}">Contact</a>
                                             </li>
                                             <li class="dropdown has-submenu">
-                                                <a href="shop-single.html" class="dropdown-toggle"
-                                                   data-toggle="dropdown" role="button" aria-expanded="false">Single-Shop<span
-                                                        class="fa fa-angle-down"></span></a>
-                                                <ul class="dropdown-menu start-left" role="menu">
-                                                    <li><a href="shop-single.html">Single-Shop</a></li>
-                                                    <li><a href="shop-single.html">Single-Shop</a></li>
-                                                </ul>
+                                                <a href="{{route('login.user')}}">Login</a>
                                             </li>
                                             <li class="dropdown has-submenu">
-                                                <a href="shop-checkout.html" class="dropdown-toggle"
-                                                   data-toggle="dropdown" role="button" aria-expanded="false">Blog<span
-                                                        class="fa fa-angle-down"></span></a>
-                                                <ul class="dropdown-menu start-left" role="menu">
-                                                    <li><a href="shop-checkout.html">Shop Checkout</a></li>
-                                                    <li><a href="shop-checkout.html">Shop Checkout</a></li>
-                                                </ul>
+                                                <a href="{{route('register.user')}}">Register</a>
                                             </li>
-                                            <li class="dropdown has-submenu">
-                                                <a href="shop-checkout.html" class="dropdown-toggle"
-                                                   data-toggle="dropdown" role="button"
-                                                   aria-expanded="false">Contact<span
-                                                        class="fa fa-angle-down"></span></a>
-                                                <ul class="dropdown-menu start-left" role="menu">
-                                                    <li><a href="contact.html">Shop Contact</a></li>
-                                                    <li><a href="contact.html">Shop Contact</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="dropdown has-submenu">
-                                                <a href="shop-checkout.html" class="dropdown-toggle"
-                                                   data-toggle="dropdown" role="button"
-                                                   aria-expanded="false">Dashboard<span
-                                                        class="fa fa-angle-down"></span></a>
-                                                <ul class="dropdown-menu start-left" role="menu">
-                                                    <li><a href="clint-order-list.html">Clint order list</a>
-                                                    </li>
-                                                    <li><a href="clint-tracking.html">Clint Tecking Number</a>
-                                                    </li>
 
-                                                </ul>
-                                            </li>
                                         </ul>
                                     </div><!-- end navbar-cell -->
                                 </div><!-- /.navbar-collapse -->

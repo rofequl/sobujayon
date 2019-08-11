@@ -168,6 +168,19 @@
                         </ul>
                     </li>
                     <li class="has-submenu">
+                        <a href="{{route('AdminBrandList')}}"><i class="dripicons-suitcase"></i>Nursery <i
+                                class="mdi mdi-chevron-down mdi-drop"></i></a>
+                        <ul class="submenu megamenu">
+                            <li>
+                                <ul>
+                                    <li><a href="{{route('AdminNurseryList')}}">All Nursery user</a></li>
+                                    <li><a href="{{route('AdminNursery')}}">Nursery user add</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
                         <a href="#"><i class="dripicons-suitcase"></i> Product management <i
                                 class="mdi mdi-chevron-down mdi-drop"></i></a>
                         <ul class="submenu megamenu">

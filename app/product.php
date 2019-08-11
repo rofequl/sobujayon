@@ -34,7 +34,17 @@ class product extends Model
         return $this->belongsTo(item_weight::class);
     }
 
-    public function shipping_weight(){
-        return $this->belongsTo(shipping_weight::class);
+    public function width(){
+        return $this->belongsTo(width::class);
     }
+
+    public function temperature(){
+        return $this->belongsTo(temperature::class);
+    }
+
+    public function height(){
+        return $this->belongsTo(height::class);
+    }
+
+
 }
