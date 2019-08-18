@@ -18,10 +18,6 @@ class product extends Model
         return $this->belongsTo(subcategory::class);
     }
 
-    public function brand(){
-        return $this->belongsTo(brand::class);
-    }
-
     public function origin_country(){
         return $this->belongsTo(origin_country::class);
     }

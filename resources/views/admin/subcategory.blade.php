@@ -74,8 +74,6 @@
                                     </div>
                                 </div>
                             </form>
-
-
                         </div>
                     </div>
                 </div> <!-- end col -->

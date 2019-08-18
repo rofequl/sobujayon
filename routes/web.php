@@ -44,6 +44,7 @@ Route::get('/register-nursery', 'Auth\RegisterController@showNurseryForm')->name
 Route::post('/register-nursery', 'Auth\RegisterController@createNursery')->name('register.nursery');
 
 Route::post('select-subcategory', 'NurseryController@SelectSubcategory')->name('SelectSubcategory');
+Route::post('select-brand', 'NurseryController@SelectBrand')->name('SelectBrand');
 
 Route::group(['middleware' => 'auth:nursery'], function () {
 
@@ -64,3 +65,4 @@ Route::post('/register-user', 'Auth\RegisterController@createUser')->name('regis
 Route::get('shop', 'FrontendController@shop')->name('shop');
 Route::get('single-shop', 'FrontendController@SingleShop')->name('SingleShop');
 Route::post('add-cart', 'FrontendController@AddCart')->name('AddCart');
+Route::post('total-cost', 'FrontendController@TotalCost')->name('TotalCost');

@@ -51,11 +51,10 @@
                                             <th>Price</th>
                                             <th>profit margin</th>
                                             <th>Qty</th>
-                                            <th>Delivery Charge</th>
                                             <th>Origin country</th>
                                             <th>temperature</th>
-                                            <th>Warranty & Support</th>
-                                            <th>Suggested related Item</th>
+                                            <th>what you will get</th>
+                                            <th>Gift</th>
                                             <th>Image</th>
 
                                         </tr>
@@ -67,7 +66,13 @@
                                                 <td>{{$products->name->name}}</td>
                                                 <td>{{$products->category->category}}</td>
                                                 <td>{{$products->subcategory->subcategory}}</td>
-                                                <td>{{$products->brand->name}}</td>
+                                                <td>
+                                                    @if($products->brand_id)
+                                                        @foreach(explode(',',$products->brand_id) as $brand)
+                                                            {{get_brand_by_id($brand)->name}},
+                                                        @endforeach
+                                                    @endif
+                                                </td>
                                                 <td>{{$products->color}}</td>
                                                 <td>{{$products->age->age}}</td>
                                                 <td>{{$products->item_weight->weight}}</td>
@@ -76,12 +81,13 @@
                                                 <td>{{$products->discount}}</td>
                                                 <td>{{$products->profit_margin}}</td>
                                                 <td>{{$products->qty}}</td>
-                                                <td>{{$products->delivery_charge}}</td>
                                                 <td>{{$products->origin_country->country}}</td>
                                                 <td>{{$products->temperature->temperature}}</td>
                                                 <td>{{$products->what_you_will_get}}</td>
-                                                <td>{{$products->related_item}}</td>
-                                                <td><img class="rounded-circle" height="100" width="100" alt="200x200" src="{{asset('storage/tree/'.$products->image)}}" data-holder-rendered="true"></td>
+                                                <td>{{$products->gift}}</td>
+                                                <td><img class="rounded-circle" height="100" width="100" alt="200x200"
+                                                         src="{{asset('storage/tree/'.$products->image)}}"
+                                                         data-holder-rendered="true"></td>
                                             </tr>
                                         @endforeach
 

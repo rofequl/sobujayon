@@ -80,15 +80,15 @@
                                     </tr>
                                     <tr>
                                         <th>temperature</th>
-                                        <td> {{$product->temperature}}</td>
+                                        <td> {{$product->temperature->temperature}}</td>
                                     </tr>
                                     <tr>
-                                        <th>Warranty & Support</th>
-                                        <td> {{$product->warranty}}</td>
+                                        <th>What you will get</th>
+                                        <td> {{$product->what_you_will_get}}</td>
                                     </tr>
                                     <tr>
-                                        <th>Suggested related Item</th>
-                                        <td> {{$product->related_item}}</td>
+                                        <th>Gift</th>
+                                        <td> {{$product->gift}}</td>
                                     </tr>
                                 </table>
 

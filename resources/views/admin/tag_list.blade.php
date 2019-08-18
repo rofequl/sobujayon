@@ -47,6 +47,7 @@
                                 <tr>
                                     <th>SL</th>
                                     <th>Brand Name</th>
+                                    <th>Subcategory Name</th>
                                     <th>Total Product</th>
                                     <th>Frontend View</th>
                                     <th> Action</th>
@@ -58,7 +59,8 @@
                                     <tr>
                                         <td>{{$list}}</td>
                                         <td>{{$tags->name}}</td>
-                                        <td>{{$tags->product->count()}}</td>
+                                        <td>{{$tags->subcategory->subcategory}}</td>
+                                        <td>{{get_product_by_brand($tags->id)->count()}}</td>
                                         <td>
                                             @if($tags->status == 0)
                                                 <button

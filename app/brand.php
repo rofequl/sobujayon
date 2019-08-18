@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class brand extends Model
 {
-    public function product(){
-        return $this->hasMany(product::class,'brand_id');
+    public function subcategory(){
+        return $this->belongsTo(subcategory::class);
     }
 }

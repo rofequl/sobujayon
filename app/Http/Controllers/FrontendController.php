@@ -11,9 +11,7 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        $brand = brand::with(array('product' => function ($query) {
-            $query->where('status', 1);
-        }))->where('status', 1)->orderBy('id', 'DESC')->get();
+        $brand = brand::where('status', 1)->orderBy('id', 'DESC')->get();
         return view('frontend.index', compact('brand'));
     }
 
@@ -59,5 +57,21 @@ class FrontendController extends Controller
         }
 
 
+    }
+
+    public function TotalCost(Request $request)
+    {
+        $qty = $request->qty;
+        if ($qty == 'NaN' || $qty == 0){
+            $qty = 1;
+        }
+        $lift = $request->lift;
+        if ($lift == 'NaN' || $lift == 0){
+            $lift = 1;
+        }
+
+        $product = product::find($request->id);
+
+        dd($request->all());
     }
 }

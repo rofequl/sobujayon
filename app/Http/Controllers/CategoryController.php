@@ -90,27 +90,29 @@ class CategoryController extends Controller
 
     public function AdminBrand()
     {
-        return view('admin.brand');
+        $subcategory = subcategory::all();
+        return view('admin.brand',compact('subcategory'));
     }
 
     public function AdminBrandAdd(Request $request)
     {
         $request->validate([
-            'tag_name' => 'required|max:191|unique:tags',
+            'subcategory_id' => 'required',
+            'name' => 'required|max:191|unique:brands',
         ]);
 
         $insert = new brand();
-        $insert->name = $request->tag_name;
+        $insert->name = $request->name;
+        $insert->subcategory_id = $request->subcategory_id;
         $insert->save();
 
-        Session::flash('message', 'Tag add successfully');
+        Session::flash('message', 'Brand add successfully');
         return redirect('admin-brand');
     }
 
     public function AdminBrandList()
     {
-        $tag = brand::with(array('product' => function($query) {$query->where('status', 1);
-        }))->orderBy('id', 'DESC')->get();
+        $tag = brand::orderBy('id', 'DESC')->get();
         return view('admin.tag_list', compact('tag'));
     }
 

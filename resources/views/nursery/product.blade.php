@@ -52,7 +52,7 @@
                                     <label for="example-number-input" class="col-sm-2 col-form-label">Product
                                         Name*</label>
                                     <div class="col-sm-10">
-                                        <select class="form-control" name="name_id">
+                                        <select class="form-control js-example-basic-single" name="name_id">
                                             <option value="" selected disabled>Select Name</option>
                                             @foreach($name as $names)
                                                 <option
@@ -68,7 +68,7 @@
                                     <label class="col-sm-2 col-form-label">Category*</label>
                                     <div class="col-sm-10">
                                         <select
-                                            class="form-control {{ $errors->has('category_id') ? ' is-invalid' : '' }}"
+                                            class="form-control js-example-basic-single"
                                             name="category_id" id="category">
                                             <option value="" selected disabled>Select Category</option>
                                             @foreach($category as $categorys)
@@ -84,8 +84,8 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Sub Category*</label>
                                     <div class="col-sm-10">
-                                        <select class="form-control" id="subcategory" name="subcategory_id">
-
+                                        <select class="form-control js-example-basic-single" id="subcategory" name="subcategory_id">
+                                            <option value="" selected disabled>Select Subcategory</option>
                                         </select>
                                     </div>
                                 </div>
@@ -93,14 +93,8 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Brand*</label>
                                     <div class="col-sm-10">
-                                        <select class="form-control" name="brand_id">
-                                            <option value="" selected disabled>Select Brand</option>
-                                            @foreach($brand as $brands)
-                                                <option
-                                                    value="{{$brands->id}}" {{ old('brand_id') ? 'selected' : '' }}>
-                                                    {{$brands->name}}
-                                                </option>
-                                            @endforeach
+                                        <select class="form-control js-example-basic-single" id="brand" name="brand_id[]" multiple="multiple">
+                                            <option value="" disabled>Select Brand</option>
                                         </select>
                                     </div>
                                 </div>
@@ -303,16 +297,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="form-group row">
-                                    <label for="example-number-input" class="col-sm-2 col-form-label"> Delivery
-                                        Charge</label>
-                                    <div class="col-sm-10">
-                                        <input id="demo2" type="number" value="{{ old('delivery_charge')}}"
-                                               name="delivery_charge" class=" form-control">
-                                    </div>
-                                </div>
-
                                 <div class="form-group row">
                                     <label for="example-number-input" class="col-sm-2 col-form-label">Origin
                                         Country</label>
@@ -333,8 +317,8 @@
                                     <label for="example-month-input" class="col-sm-2 col-form-label">temperature</label>
                                     <div class="col-sm-10">
                                         <select class="form-control" name="temperature_id">
+                                            <option value="" selected disabled>Select Temperature</option>
                                             @foreach($temperature as $temperatures)
-                                                <option value="" selected disabled>Select Temperature</option>
                                                 <option
                                                     value="{{$temperatures->id}}" {{ old('temperature_id') ? 'selected' : '' }}>
                                                     {{$temperatures->temperature}}
@@ -362,17 +346,16 @@
                                 {{--                                </div>--}}
 
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Suggested related Item</label>
+                                    <label for="example-number-input" class="col-sm-2 col-form-label">Gift</label>
                                     <div class="col-sm-10">
-                                        @foreach($brand as $brands)
-                                            <div class="custom-control custom-checkbox mr-sm-2">
-                                                <input type="checkbox" value="{{$brands->id}}"
-                                                       class="custom-control-input"
-                                                       id="customControl{{$brands->id}}" name="related_item[]">
-                                                <label class="custom-control-label"
-                                                       for="customControl{{$brands->id}}">{{$brands->name}}</label>
-                                            </div>
-                                        @endforeach
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="customRadioInline5" name="gift" value="yes" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadioInline5">Yes</label>
+                                        </div>
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="customRadioInline6" name="gift" value="no" class="custom-control-input" checked>
+                                            <label class="custom-control-label" for="customRadioInline6">No</label>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -442,6 +425,27 @@
                 }
             });
         });
+
+        $('#subcategory').change(function () {
+            let id = $(this).val();
+            $.ajax({
+                url: "{{ route('SelectBrand') }}",
+                type: 'post',
+                data: {_token: CSRF_TOKEN, id: id},
+                dataType: 'json',
+                success: function (data) {
+                    $('#brand').html('').append($('<option>', {value: '', text: 'Select Brand'}));
+                    data.forEach(function (element) {
+                        $('#brand').append($('<option>', {value: element.id, text: element.name}));
+                    });
+                }
+            });
+        });
+
+        $(document).ready(function() {
+            $('.js-example-basic-single').select2();
+        });
+
     </script>
 
 @endpush

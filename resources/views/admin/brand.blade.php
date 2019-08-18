@@ -14,7 +14,7 @@
                             <input type="text" placeholder="Search..." class="form-control">
                             <button type="submit"><i class="fa fa-search"></i></button>
                         </form>
-                        <h4 class="page-title"> <i class="dripicons-box"></i> Brand ADD</h4>
+                        <h4 class="page-title"><i class="dripicons-box"></i> Brand ADD</h4>
                     </div>
                 </div>
             </div>
@@ -45,17 +45,29 @@
                             <form method="post" action="{{route('AdminBrandAdd')}}">
                                 @csrf
                                 <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Brand Name</label>
+                                    <label class="col-sm-2 col-form-label"> Subcategory name</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" type="text" name="tag_name" id="example-text-input">
+                                        <select class="form-control" name="subcategory_id">
+                                            <option value="" selected disabled> Select Subcategory</option>
+                                            @foreach($subcategory as $subcategories)
+                                                <option
+                                                    value="{{$subcategories->id}}">{{$subcategories->subcategory}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
-
+                                <div class="form-group row">
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Brand
+                                        Name</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" name="name" type="text" id="example-text-input">
+                                    </div>
+                                </div>
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label"></label>
                                     <div class="col-sm-10">
                                         <button type="submit" class="btn btn-primary waves-effect waves-light">
-                                            add Brand
+                                            Add Brand
                                         </button>
                                         <button type="reset" class="btn btn-secondary waves-effect m-l-5">
                                             Cancel
@@ -75,4 +87,10 @@
 
 
 @endsection
+@push('style')
+
+@endpush
+@push('script')
+
+@endpush
 

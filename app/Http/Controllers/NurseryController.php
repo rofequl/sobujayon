@@ -30,8 +30,8 @@ class NurseryController extends Controller
 
     public function AdminNurseryList()
     {
-        $nursery = nursery::select('email','name','id')->orderBy('id','DESC')->get();
-        return view('admin.nursery.nurcery_list',compact('nursery'));
+        $nursery = nursery::select('email', 'name', 'id')->orderBy('id', 'DESC')->get();
+        return view('admin.nursery.nurcery_list', compact('nursery'));
     }
 
     public function AdminNurseryListDelete(Request $request)
@@ -52,7 +52,6 @@ class NurseryController extends Controller
         $category = category::all();
         $subcategory = subcategory::all();
         $name = name::all();
-        $brand = brand::all();
         $age = age::all();
         $item_weight = item_weight::all();
         $origin_country = origin_country::all();
@@ -60,13 +59,13 @@ class NurseryController extends Controller
         $height = height::all();
         $temperature = temperature::all();
         return view('nursery.product', compact('category', 'subcategory',
-            'name','brand','age','item_weight','origin_country','width','height','temperature'));
+            'name', 'age', 'item_weight', 'origin_country', 'width', 'height', 'temperature'));
     }
 
     public function NurseryProductList()
     {
-        $product = product::with('category','name','brand')->orderBy('id','DESC')->get();
-        return view('nursery.product_list',compact('product'));
+        $product = product::with('category', 'name')->orderBy('id', 'DESC')->get();
+        return view('nursery.product_list', compact('product'));
     }
 
     public function NurseryProductAdd(Request $request)
@@ -74,7 +73,6 @@ class NurseryController extends Controller
         $request->validate([
             'category_id' => 'required',
             'subcategory_id' => 'required',
-            'brand_id' => 'required',
             'name_id' => 'required',
             'color' => 'max:191',
             'age_id' => 'required|digits_between:1,10|integer',
@@ -90,17 +88,23 @@ class NurseryController extends Controller
             'image4' => 'required|image|required|mimes:jpeg,png,jpg,gif,svg',
             'video' => 'max:191',
             'qty' => 'required|digits_between:1,10|integer',
-            'delivery_charge' => 'required|digits_between:1,10|integer',
             'origin_country_id' => 'required',
             'temperature_id' => 'required|digits_between:1,10|integer',
             'what_you_will_get' => 'required|max:500',
-            'related_item' => 'required',
+            'gift' => 'required',
         ]);
 
+        //dd($request->all());
+
         $insert = new product();
+        if ($request->gift == 'no'){
+            $request->validate([
+                'brand_id' => 'required',
+            ]);
+            $insert->brand_id = implode(",",$request->brand_id);
+        }
         $insert->category_id = $request->category_id;
         $insert->subcategory_id = $request->subcategory_id;
-        $insert->brand_id = $request->brand_id;
         $insert->name_id = $request->name_id;
         $insert->short_description = $request->short_description;
         $insert->long_description = $request->long_description;
@@ -116,21 +120,20 @@ class NurseryController extends Controller
         $insert->qty = $request->qty;
         $insert->with_fruit = $request->with_fruit;
         $insert->with_flower = $request->with_flower;
-        $insert->delivery_charge = $request->delivery_charge;
         $insert->origin_country_id = $request->origin_country_id;
         $insert->temperature_id = $request->temperature_id;
         $insert->what_you_will_get = $request->what_you_will_get;
-        $insert->related_item = implode(',',$request->related_item);
+        $insert->gift = $request->gift;
 
         if ($request->hasFile('image')) {
             $extension = $request->file('image')->getClientOriginalExtension();
             $name = rand(10, 100) . time() . "." . $extension;
-            $file= $request->file('image');
+            $file = $request->file('image');
             $img = Image::make($file);
-            $img1 = $img->resize(1126,1126)->encode();
+            $img1 = $img->resize(1126, 1126)->encode();
             Storage::put($name, $img1);
             Storage::move($name, 'public/tree/' . $name);
-            $img2 = $img->resize(500,500)->encode();
+            $img2 = $img->resize(500, 500)->encode();
             Storage::put($name, $img2);
             Storage::move($name, 'public/tree/convert/' . $name);
             $insert->image = $name;
@@ -139,8 +142,8 @@ class NurseryController extends Controller
         if ($request->hasFile('image2')) {
             $extension1 = $request->file('image2')->getClientOriginalExtension();
             $fileStore1 = rand(10, 100) . time() . "." . $extension1;
-            $file= $request->file('image2');
-            $img = Image::make($file)->resize(1126,1126)->encode();
+            $file = $request->file('image2');
+            $img = Image::make($file)->resize(1126, 1126)->encode();
             Storage::put($fileStore1, $img);
             Storage::move($fileStore1, 'public/tree/' . $fileStore1);
             $insert->image2 = $fileStore1;
@@ -149,8 +152,8 @@ class NurseryController extends Controller
         if ($request->hasFile('image3')) {
             $extension2 = $request->file('image3')->getClientOriginalExtension();
             $fileStore2 = rand(10, 100) . time() . "." . $extension2;
-            $file= $request->file('image3');
-            $img = Image::make($file)->resize(1126,1126)->encode();
+            $file = $request->file('image3');
+            $img = Image::make($file)->resize(1126, 1126)->encode();
             Storage::put($fileStore2, $img);
             Storage::move($fileStore2, 'public/tree/' . $fileStore2);
             $insert->image3 = $fileStore2;
@@ -159,8 +162,8 @@ class NurseryController extends Controller
         if ($request->hasFile('image4')) {
             $extension3 = $request->file('image4')->getClientOriginalExtension();
             $fileStore3 = rand(10, 100) . time() . "." . $extension3;
-            $file= $request->file('image4');
-            $img = Image::make($file)->resize(1126,1126)->encode();
+            $file = $request->file('image4');
+            $img = Image::make($file)->resize(1126, 1126)->encode();
             Storage::put($fileStore3, $img);
             Storage::move($fileStore3, 'public/tree/' . $fileStore3);
             $insert->image4 = $fileStore3;
@@ -174,7 +177,11 @@ class NurseryController extends Controller
 
     public function SelectSubcategory(Request $request)
     {
+        return json_encode(subcategory::where('category_id', $request->id)->get());
+    }
 
-        return json_encode(subcategory::where('category_id',$request->id)->get());
+    public function SelectBrand(Request $request)
+    {
+        return json_encode(brand::where('subcategory_id', $request->id)->get());
     }
 }

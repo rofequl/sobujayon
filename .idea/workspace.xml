@@ -2,7 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c216fdb-74ff-496c-b737-96ec7a37ae0c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/delivery_cost.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_08_18_114108_create_delivery_costs_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FrontendController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FrontendController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NurseryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NurseryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/brand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/brand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/subcategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/subcategory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2019_07_30_134618_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_07_30_134618_create_products_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_05_140649_create_brands_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_05_140649_create_brands_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/brand.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/brand.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/product_info.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product_info.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/subcategory.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/subcategory.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/tag_list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/tag_list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/inc/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/inc/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/single-shop.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/single-shop.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/nursery/product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/nursery/product.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/nursery/product_list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/nursery/product_list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -184,7 +205,11 @@
       <workItem from="1565413008214" duration="278000" />
       <workItem from="1565462198088" duration="5237000" />
       <workItem from="1565494350317" duration="2736000" />
-      <workItem from="1565497464469" duration="31000" />
+      <workItem from="1565497464469" duration="223000" />
+      <workItem from="1565767145520" duration="31000" />
+      <workItem from="1566018312314" duration="2448000" />
+      <workItem from="1566036442325" duration="6724000" />
+      <workItem from="1566112210567" duration="13352000" />
     </task>
     <servers />
   </component>
@@ -206,16 +231,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/resources/views/frontend/single-shop.blade.php</url>
-          <line>390</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

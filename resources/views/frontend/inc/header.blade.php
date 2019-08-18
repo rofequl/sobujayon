@@ -69,7 +69,7 @@
             </div><!-- end left -->
             <div class="col-md-1 text-right">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown has-submenu">
+                    <li class="">
                         <img
                             style="background-position: center; margin-left: 50px;  padding-top: 20px;"
                             class="dropdown-toggle" data-toggle="dropdown" role="button"
@@ -77,25 +77,6 @@
                         @if(Auth::guard('user')->check())<p style="margin-top: -33px;margin-right: -18px;">
                             {{Auth::guard('user')->user()->name}}
                         </p>@endif
-                        <ul class="dropdown-menu start-left" role="">
-                            @if(Auth::guard('user')->check())
-                                <li><a href="/" onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();"><i
-                                            class="fa fa-unlock-alt"></i> Log out</a></li>
-                            @else
-                                <li><a href="{{route('login.user')}}"><i class="fa fa-unlock-alt"></i> Login</a></li>
-                                <li><a href="{{route('register.user')}}"><i class="fa fa-user-plus"></i> Create An
-                                        Account</a></li>
-                        @endif
-                        <!--<li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>-->
-                            <!--<li><a href="#"><i class="fa fa-heart-o"></i> My Wishlist</a></li>-->
-                            <!--<li><a href="#"><i class="fa fa-exchange"></i> Compare</a></li>-->
-                            <!--<li><a href="#"><i class="fa fa-check"></i> Checkout</a></li>-->
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                                <input type="hidden" name="type" value="user">
-                            </form>
-                        </ul>
                     </li>
                 </ul>
             </div>

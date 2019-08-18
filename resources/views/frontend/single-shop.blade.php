@@ -57,33 +57,90 @@
                                     <i class="fa fa-star"></i>
                                 </div>
 
-                                <h4 style="font-family:'Galada' "> 0 people wishlist | {{$product->qty}} product has</h4>
+                                <h4 style="font-family:'Galada' "> 0 people wishlist | {{$product->qty}} product
+                                    has</h4>
 
                                 <p>{{$product->short_description}}</p>
 
-                                <a style="font-family:'Galada';font-size: large " href=""><img src="{{asset('assets/frontend/upload/35.png')}}">#1
+                                <a style="font-family:'Galada';font-size: large " href=""><img
+                                        src="{{asset('assets/frontend/upload/35.png')}}">#1
                                     Best Seller</img><span>in </span><span
                                         class="cat-link"> Outdoor Recreation nursery</span></a>
                                 <div class="clearfix">
                                     <div class="row" style="margin-top: 10px">
-                                        <div class="col-md-7">
+                                        <div class="col-md-6">
                                             <div class="input-group">
-                                                <span class="input-group-addon btn btn-success plus"><i class="fa fa-plus"></i></span>
-                                                <input id="msg" type="number" class="form-control seat" name="msg" placeholder="Product Quantity">
-                                                <span class="input-group-addon btn btn-success minus"><i class="fa fa-minus"></i></span>
+                                                <span class="input-group-addon btn btn-success plus"><i
+                                                        class="fa fa-plus"></i></span>
+                                                <input id="msg" type="number" class="form-control seat" name="msg"
+                                                       placeholder="Product Quantity">
+                                                <span class="input-group-addon btn btn-success minus"><i
+                                                        class="fa fa-minus"></i></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="input-group">
+                                                <span class="input-group-addon btn btn-success plus1"><i
+                                                        class="fa fa-plus"></i></span>
+                                                <input id="msg" type="number" class="form-control seat1" name="msg"
+                                                       placeholder="Building Floor">
+                                                <span class="input-group-addon btn btn-success minus1"><i
+                                                        class="fa fa-minus"></i></span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <a href="#" class="btn btn-primary add-cart" id="{{$product->id}}">Add to Cart</a>
+                                <div class="row" style="margin-top: 10px">
+                                    <div class="col-md-6">
+                                        <a href="#" class="btn btn-primary add-cart" id="{{$product->id}}">Add to
+                                            Cart</a>
 
-                                <div class="addwish">
-                                    <a href="shop-wishlist.html"><i class="fa fa-heart-o"></i> Add to Wishlist</a>
-                                </div><!-- end addw -->
-                                <div class="shopmeta">
-                                    <span><strong>Category:</strong> <a href="#">{{$product->category->category}}</a></span>
-                                    <span><strong>Brand:</strong> <a href="#">{{$product->brand->name}}</a></span>
-                                </div><!-- end shopmeta -->
+                                        <div class="addwish">
+                                            <a href="shop-wishlist.html"><i class="fa fa-heart-o"></i> Add to
+                                                Wishlist</a>
+                                        </div><!-- end addw -->
+                                        <div class="shopmeta">
+                                             <span><strong>Category:</strong> <a
+                                                     href="#">{{$product->category->category}}</a></span>
+                                            <span><strong>Brand:</strong> <a href="#">
+                                            @if($product->brand_id)
+                                                        @foreach(explode(',',$product->brand_id) as $brand)
+                                                            {{get_brand_by_id($brand)->name}},
+                                                        @endforeach
+                                                    @endif
+                                        </a></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row" style="margin-top: 30px">
+                                            <div class="col-md-6 text-right" style="line-height: 43px;">
+                                                Delivery Cost:
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control form-control-sm" value=""
+                                                       readonly="">
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-top: 10px">
+                                            <div class="col-md-6 text-right" style="line-height: 43px;">
+                                                Lift Cost:
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control form-control-sm" value=""
+                                                       readonly="">
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-top: 10px">
+                                            <div class="col-md-6 text-right" style="line-height: 43px;">
+                                                Total Cost:
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" value="" readonly="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end shopmeta -->
 
                             </div><!-- end desc -->
                         </div><!-- end col -->
@@ -105,7 +162,8 @@
 
                                     <div class="tab-content">
                                         <div id="home" class="tab-pane fade in active">
-                                            <p><img src="{{asset('storage/tree/convert/'.$product->image)}}" class="alignleft" alt=""> Lorem ipsum dolor sit
+                                            <p><img src="{{asset('storage/tree/convert/'.$product->image)}}"
+                                                    class="alignleft" alt=""> Lorem ipsum dolor sit
                                                 {{$product->short_description}} </p>
                                             <br>
                                             <p>labore et dolore magna aliqua. amet, consectet, sed do eiusmod tempor
@@ -378,17 +436,25 @@
 
     <script src="{{asset('assets/frontend/js/jquery.prettyPhoto.js')}}"></script>
     <script type="text/javascript">
-        (function($) {
+        (function ($) {
             "use strict";
-            jQuery('a[data-gal]').each(function() {
-                jQuery(this).attr('rel', jQuery(this).data('gal')); });
-            jQuery("a[data-rel^='prettyPhoto']").prettyPhoto({animationSpeed:'slow',theme:'light_square',slideshow:true,overlay_gallery: true,social_tools:false,deeplinking:false});
+            jQuery('a[data-gal]').each(function () {
+                jQuery(this).attr('rel', jQuery(this).data('gal'));
+            });
+            jQuery("a[data-rel^='prettyPhoto']").prettyPhoto({
+                animationSpeed: 'slow',
+                theme: 'light_square',
+                slideshow: true,
+                overlay_gallery: true,
+                social_tools: false,
+                deeplinking: false
+            });
         })(jQuery);
     </script>
     <!--cart-->
     <script>
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-        $(function(){
+        $(function () {
             $("#exzoom").exzoom({
                 "navWidth": 60,
                 "navHeight": 60,
@@ -399,37 +465,60 @@
                 "autoPlayTimeout": 2000
             });
         });
-
         $(document).ready(function () {
-            $(function(){
-                $(".plus").click(function(e) {
+            $(function () {
+                $(".plus").click(function (e) {
                     e.preventDefault();
                     var $this = $(this);
                     var $input = $(".seat");
                     var value = parseInt($input.val());
                     if (value < {{$product->qty}}) {
                         value = value + 1;
-                    }
-                    else {
+                    } else {
                         value = 1;
                     }
                     $input.val(value);
                 });
-                $(".minus").click(function(e) {
+                $(".minus").click(function (e) {
                     e.preventDefault();
                     var $this = $(this);
                     var $input = $(".seat");
                     var value = parseInt($input.val());
                     if (value > 1) {
                         value = value - 1;
-                    }
-                    else {
-                        value =1;
+                    } else {
+                        value = 1;
                     }
                     $input.val(value);
                 });
             });
 
+            $(function () {
+                $(".plus1").click(function (e) {
+                    e.preventDefault();
+                    var $this = $(this);
+                    var $input = $(".seat1");
+                    var value = parseInt($input.val());
+                    if (value < 100) {
+                        value = value + 1;
+                    } else {
+                        value = 1;
+                    }
+                    $input.val(value);
+                });
+                $(".minus1").click(function (e) {
+                    e.preventDefault();
+                    var $this = $(this);
+                    var $input = $(".seat1");
+                    var value = parseInt($input.val());
+                    if (value > 1) {
+                        value = value - 1;
+                    } else {
+                        value = 1;
+                    }
+                    $input.val(value);
+                });
+            });
 
             $(document).on('click', '.add-cart', function () {
                 event.preventDefault();
@@ -439,27 +528,27 @@
                 $.ajax({
                     url: '{{route('AddCart')}}',
                     type: 'post',
-                    data: {_token: CSRF_TOKEN, id: id, qty:value},
+                    data: {_token: CSRF_TOKEN, id: id, qty: value},
                     success: function (response) {
-                        if (response == 1){
+                        if (response == 1) {
                             swal({
                                 title: "",
                                 text: "Item is already in your cart",
                                 type: "warning",
                             });
-                        }else if (response == 2){
+                        } else if (response == 2) {
                             swal({
                                 title: "",
                                 text: "Item quantity update",
                                 type: "success",
                             });
-                        }else if (response == 3){
+                        } else if (response == 3) {
                             swal({
                                 title: "",
                                 text: "Item has been moved to cart",
                                 type: "success",
                             });
-                        }else {
+                        } else {
                             swal({
                                 title: "Error",
                                 text: "Something wrong, please try again later",
@@ -470,6 +559,21 @@
                 });
 
             });
+            total_cost();
+
+            function total_cost() {
+                let quantity = parseInt($(".seat").val());
+                let lift = parseInt($(".seat1").val());
+                let id = parseInt('{{$product->id}}');
+                $.ajax({
+                    url: '{{route('TotalCost')}}',
+                    type: 'post',
+                    data: {_token: CSRF_TOKEN, id:id, lift: lift, qty: quantity},
+                    success: function (response) {
+                        console.log(response);
+                    }
+                });
+            }
         });
 
     </script>

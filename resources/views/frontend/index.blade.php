@@ -132,7 +132,7 @@
                 </section>
                 <div id="owl-sticky" class="row owl-sticky sticky-row">
 
-                    @foreach($brands->product as)
+                    @foreach(get_product_by_brand($brands->id) as $product)
                     <div class="col-4 sticky-col">
                         <div class="imageWrapper">
                             <img src="{{asset('storage/tree/'.$product->image)}}" alt="" class="img-responsive" style="height: 210px">
